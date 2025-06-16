@@ -1,6 +1,8 @@
 #python version to use in container
 FROM python:3.10.12
 
+RUN apt-get update && apt-get install nano
+
 #Work directory in container
 WORKDIR /app
 
@@ -8,7 +10,7 @@ WORKDIR /app
 COPY . /app
 
 #requirements library
-COPY requirements.txt
+COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 

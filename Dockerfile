@@ -1,7 +1,9 @@
 #python version to use in container
 FROM python:3.10.12
 
-RUN apt-get update && apt-get install nano
+RUN apt-get update && apt-get install -y nano
+
+RUN apt-get install -y sqlite3 
 
 #Work directory in container
 WORKDIR /app
@@ -10,8 +12,6 @@ WORKDIR /app
 COPY . /app
 
 #requirements library
-COPY requirements.txt requirements.txt
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 #command to execute container is running

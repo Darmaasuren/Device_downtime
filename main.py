@@ -2,7 +2,7 @@ import time
 import signal
 import sys
 from database.db import init_db
-from status_manager import log_start, log_shutdown
+from status_manager import log_start, log_shutdown, update_shutdown
 
 def shutdown_handler(signum, frame):
     log_shutdown()
@@ -20,6 +20,7 @@ if __name__ == "__main__":
     try:
         while True:
             print("System running...")
+            update_shutdown()
             time.sleep(60)
     except Exception as e:
         print(f"ERROR, {e}")

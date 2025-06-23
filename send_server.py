@@ -46,7 +46,7 @@ def send_server(row: sqlite3.Row) -> bool:
             API_URL, 
             json=payload, 
             headers=headers, 
-            timeout=10
+            timeout=20
             )
         r.raise_for_status()
         logging.info("OK downtime sent id=%s payload=%s", row["id"], payload)

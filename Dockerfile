@@ -9,7 +9,7 @@ RUN apt-get install -y sqlite3
 WORKDIR /app
 
 #Copy local to container
-COPY . /app
+COPY . .
 
 #requirements library
 RUN pip install --no-cache-dir -r requirements.txt
